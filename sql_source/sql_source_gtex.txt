@@ -1,0 +1,22 @@
+USE czysz;
+DROP TABLE IF EXISTS GTEx;
+
+CREATE TABLE GTEx (
+ID INT NOT NULL ,
+Analysis_ID INT,
+RS VARCHAR(255) ,
+chr VARCHAR(5),
+position INT ,
+Probe_GI VARCHAR(255) ,
+Probe_chr VARCHAR(5) ,
+Probe_pos INT ,
+Gene VARCHAR(255) ,
+Gene_ID VARCHAR(255) ,
+mRNA VARCHAR(255) ,
+pvalue FLOAT ,
+rsquared FLOAT,
+description VARCHAR(255) ,
+PRIMARY KEY(ID)
+);
+
+

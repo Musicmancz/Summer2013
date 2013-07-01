@@ -1,0 +1,6 @@
+# mysql source for creating database to which SNPContigLocusID file is uploaded
+# column descriptions available at https://www.ncbi.nlm.nih.gov/projects/SNP/snp_db_table_description.cgi?t=SNPContigLocusId
+
+DROP TABLE IF EXISTS SNPcontig;
+
+CREATE TABLE SNPcontig(snp_id int , contig_acc varchar(255) , contig_ver int , asn_from int , asn_to int , locus_id int , locus_symbol varchar(255) , mrna_acc varchar(255) , mrna_ver int , protein_acc varchar(255) , protein_ver int , fxn_class int , reading_frame int , allele varchar(255) , residue varchar(255) , aa_position int , build_id varchar(255) , ctg_id int , mrna_pos int , codon varchar(255) , protRes varchar(255) , index(snp_id , asn_from , asn_to , locus_symbol , codon , protRes));
