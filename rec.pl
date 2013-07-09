@@ -42,7 +42,7 @@ sub findrs2 {
 }
 
 
-my $dbh=DBI->connect("DBI:mysql:database=czysz;host=152.2.15.164",'charlesczysz','CharlesSquared') or die "Could not connect to database.";
+my $dbh=DBI->connect("DBI:mysql:database=czysz;host=<ip>",'<user>','<pass>') or die "Could not connect to database.";
 
 my $sth_chrom = $dbh->prepare("SELECT chrom FROM LD GROUP BY chrom");
 $sth_chrom->execute();
