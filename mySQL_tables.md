@@ -137,7 +137,7 @@ Pictar data from the [doRiNA](http://dorina.mdc-berlin.de/rbp_browser/dorina.htm
 
 # LD #
 
-Linkage disequilbrium data from [HapMap](ftp://ftp.hapmap.org/hapmap/ld_data/2009-04_rel27/) (rel 27).
+Linkage disequilbrium data from [HapMap](ftp://ftp.hapmap.org/hapmap/ld_data/2009-04_rel27/) (HapMap data release #27, February 2009, on NCBI B36 assembly, dbSNP b126).
 
 ### Table Description ###
 
@@ -228,3 +228,58 @@ All entries included regardless of p-value.
     | dhs_chr | dhs_start | dhs_end | dhs_id  | gene_chr | gene_start | gene_end | gene_name | metaprobeset_id | ensemblID       | cor          | pval         |
     | chr17   |       125 |     275 | 1051476 | chr17    |      63670 |   177334 | RPH3AL    | 15220           | ENSG00000181031 | 0.3075051010 | 0.9869999886 | 
 
+# snp\_stop #
+
+Contains data on SNPs in stop codons of mRNA. A residue of "*" indicates a SNP associated with a stop codon.
+
+### Table Description ###
+
+    +---------------+--------------+------+-----+---------+-------+
+    | Field         | Type         | Null | Key | Default | Extra |
+    +---------------+--------------+------+-----+---------+-------+
+    | snp_id        | varchar(255) | NO   | PRI | NULL    |       |
+    | contig_acc    | varchar(255) | YES  |     | NULL    |       |
+    | contig_ver    | int(11)      | YES  |     | NULL    |       |
+    | asn_from      | int(11)      | YES  |     | NULL    |       |
+    | asn_to        | int(11)      | YES  |     | NULL    |       |
+    | locus_id      | int(11)      | YES  |     | NULL    |       |
+    | locus_symbol  | varchar(255) | YES  |     | NULL    |       |
+    | mrna_acc      | varchar(255) | YES  |     | NULL    |       |
+    | mrna_ver      | int(11)      | YES  |     | NULL    |       |
+    | protein_acc   | varchar(255) | YES  |     | NULL    |       |
+    | protein_ver   | int(11)      | YES  |     | NULL    |       |
+    | fxn_class     | int(11)      | YES  |     | NULL    |       |
+    | reading_frame | int(11)      | YES  |     | NULL    |       |
+    | allele        | varchar(255) | YES  |     | NULL    |       |
+    | residue       | varchar(255) | YES  |     | NULL    |       |
+    | aa_position   | int(11)      | YES  |     | NULL    |       |
+    | build_id      | varchar(255) | YES  |     | NULL    |       |
+    | ctg_id        | int(11)      | YES  |     | NULL    |       |
+    | mrna_pos      | int(11)      | YES  |     | NULL    |       |
+    | random1       | varchar(255) | YES  |     | NULL    |       |
+    | codon         | varchar(255) | YES  |     | NULL    |       |
+    | protRes       | varchar(255) | YES  |     | NULL    |       |
+    | random2       | varchar(255) | YES  |     | NULL    |       |
+    | random3       | varchar(255) | YES  |     | NULL    |       |
+    | random4       | varchar(255) | YES  |     | NULL    |       |
+    +---------------+--------------+------+-----+---------+-------+
+
+### Sample Data ###
+
+    +------------+------------+------------+----------+----------+----------+--------------+--------------+----------+--------------+-------------+-----------+---------------+--------+---------+-------------+----------+-----------+----------+---------+-------+---------+-----------+-----------+---------+
+    | snp_id     | contig_acc | contig_ver | asn_from | asn_to   | locus_id | locus_symbol | mrna_acc     | mrna_ver | protein_acc  | protein_ver | fxn_class | reading_frame | allele | residue | aa_position | build_id | ctg_id    | mrna_pos | random1 | codon | protRes | random2   | random3   | random4 |
+    +------------+------------+------------+----------+----------+----------+--------------+--------------+----------+--------------+-------------+-----------+---------------+--------+---------+-------------+----------+-----------+----------+---------+-------+---------+-----------+-----------+---------+
+    | rs10009430 | NT_016354  |         19 | 54578483 | 54578483 |   132321 | C4orf33      | NM_001099783 |        1 | NP_001093253 |           1 |        41 |             1 | T      | *       |         143 | 37_4     | 224514665 |      521 | 521     | TGA   | OPA     | 224514665 | 153251888 | 0       |
+    +------------+------------+------------+----------+----------+----------+--------------+--------------+----------+--------------+-------------+-----------+---------------+--------+---------+-------------+----------+-----------+----------+---------+-------+---------+-----------+-----------+---------+
+
+# snp\_in\_exon #
+
+RSIDs of results from dbSNP given the query
+ 
+    (((Human[Organism]) AND STOP-GAIN[Function Class]) OR STOP-LOSS[Function Class]) OR missense[Function Class]
+
+in order to find SNPs in exons which can cause regulatory changes.
+
+# SNP\_stop #
+
+RSIDs of SNP results from dbSNP where residue = '*', indicating a stop codon.
